@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quora Clone</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1><a href="{% url 'home' %}">Quora Clone</a></h1>
+        {% if user.is_authenticated %}
+            <p>Welcome, {{ user.username }} | <a href="{% url 'logout_view' %}">Logout</a></p>
+        {% endif %}
+        <hr>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
